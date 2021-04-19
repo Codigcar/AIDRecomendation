@@ -164,8 +164,18 @@ class UserController {
                 patientOdoctor = await this._patientService.getIdPatientDoctorByIdUser(userId);
                 patientOdoctor.Especialidad = '';
                 patientOdoctor.Colegiatura = '';
+                patientOdoctor.Correo = user.Correo;
+                patientOdoctor.Contrasenia = user.Contrasenia;
+                patientOdoctor.PalabraSecreta = user.PalabraSecreta;
+                patientOdoctor.Usuario = user.Usuario;
+                patientOdoctor.Rol = user.Rol;
             } else if ( user.Rol === 2){
                 patientOdoctor = await this._doctorService.getIdPatientDoctorByIdUser(userId);
+                patientOdoctor.Correo = user.Correo;
+                patientOdoctor.Contrasenia = user.Contrasenia;
+                patientOdoctor.PalabraSecreta = user.PalabraSecreta;
+                patientOdoctor.Usuario = user.Usuario;
+                patientOdoctor.Rol = user.Rol;
             }
 
 
