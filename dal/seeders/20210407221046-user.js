@@ -45,9 +45,9 @@ module.exports = {
        },
        {
         id : 4,
-        Usuario : 'Admin',
-        Correo : 'Admin',
-        Contrasenia : 'Admin',
+        Usuario : 'testAdmin',
+        Correo : 'testAdmin',
+        Contrasenia : 'testAdmin',
         Rol : 3,
         PalabraSecreta : 'Admin',
         createdAt: new Date(),
