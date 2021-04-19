@@ -8,6 +8,7 @@ class Doctor {
     Edad = '';
     Especialidad = '';
     Colegiatura = '';
+    PromedioPuntuacion = 0;
 }
 
 module.exports = Doctor;

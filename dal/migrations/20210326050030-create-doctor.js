@@ -29,6 +29,9 @@ module.exports = {
       Colegiatura: {
         type: Sequelize.STRING
       },
+      PromedioPuntuacion: {
+        type: Sequelize.INTEGER
+      },
       userId: {
         type: Sequelize.INTEGER,
         onDelete:"CASCADE",

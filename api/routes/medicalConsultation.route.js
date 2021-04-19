@@ -21,16 +21,15 @@ const MedicalConsultationRouter = function({medicalConsultationController,valida
     router.post('/:patientId/medicalHistories/:medicalHistroyId/medicalConsultations',medicalConsultationController.writeMessage.bind(medicalConsultationController));
     // router.put('/:patientId/medicalHistories/:medicalHistroyId/medicalConsultations/:medicalConsultationId/questions',medicalConsultationController.writeQuestion.bind(medicalConsultationController));
 
-
-    router.put('/:patientId/medicalHistories/:medicalHistoryId/medicalConsultations/:medicalConsultationId/questions',[
-    //     validateJWT.validateJWTMetodo.bind(validateJWT),
-    //     validateFields
-    ],medicalConsultationController.updateQuestion.bind(medicalConsultationController));
-
+    router.put('/:patientId/medicalHistories/:medicalHistoryId/medicalConsultations/:medicalConsultationId/questions',medicalConsultationController.updateQuestion.bind(medicalConsultationController));
+    
     router.get('/:patientId/medicalHistories/:medicalHistroyId/medicalConsultations/:id',[
         // validateJWT.validateJWTMetodo.bind(validateJWT),
         // validateFields
     ],medicalConsultationController.getMessage.bind(medicalConsultationController));
+
+    // paciente finaliza consulta
+    router.put('/:patientId/medicalHistories/:medicalHistoryId/medicalConsultations/:medicalConsultationId',medicalConsultationController.endConsultation.bind(medicalConsultationController));
 
     return router;
 }

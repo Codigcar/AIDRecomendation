@@ -149,7 +149,7 @@ class MedicalConsultationController {
             modelMedicalHistory.Paciente = paciente.Nombre;
             modelMedicalHistory.Nombre = paciente.Nombre;
             modelMedicalHistory.PacienteApellido = paciente.Apellido;
-            modelMedicalHistory.Puntuacion = 0;
+            modelMedicalHistory.Puntuacion = -1;
 
             // save en la BD
             const message = await this._medicalConsultationService.create(modelMedicalHistory);
@@ -275,14 +275,35 @@ class MedicalConsultationController {
             }
 
             // Actualiza estado a finalizado
-            if( body.Estado === 2 ){
-                await this._medicalConsultationService.update(medicalHistoryId, body);
-            }
+            // if( body.Estado === 2 ){
+            //     await this._medicalConsultationService.update(medicalHistoryId, body);
+            // }
 
             res.status(200).send({
                 data: "Updated successfully"
             })
 
+        } catch (err) {
+            console.log(err);
+            res.status(400).send({
+                message: 'No se pudo actualizar'
+            })
+        }
+    }
+
+    async endConsultation(req, res) {
+        try {
+            const { body } = req;
+            const { patientId, medicalHistoryId, medicalConsultationId } = req.params;
+
+            const { Preguntas, DoctorApellido, createdAt, ...medicalHBody  } = req.body;
+
+            console.log(medicalHBody);
+             await this._medicalConsultationService.update(medicalConsultationId, medicalHBody);
+
+            res.status(200).send({
+                data: "Updated successfully"
+            })
         } catch (err) {
             console.log(err);
             res.status(400).send({

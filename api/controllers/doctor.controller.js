@@ -80,6 +80,65 @@ class DoctorController {
             })
         }
     }
+    async getAllDoctorsByRanking(req, res) {
+        // console.log('hola');
+        try {
+
+            const AllMedicalConsultations = await this._medicalConsultationService.getAll();
+            const AllDoctors = await this._doctorService.getAll();
+            // console.log(AllMedicalConsultations);
+            // console.log(AllDoctors);
+
+            for (const iteratorDoctor of AllDoctors) {
+                    let sum = 0;
+                    let cont = 0;
+                for (const iteratorMedicalConsultation of AllMedicalConsultations) {
+                    if( iteratorMedicalConsultation.Puntuacion !== -1){
+                        if( iteratorMedicalConsultation.doctorId === iteratorDoctor.id){
+                            sum += iteratorMedicalConsultation.Puntuacion;
+                            cont++;
+                        }
+                    } 
+                }
+                // if( iteratorMedicalConsultation.Puntuacion !== -1){
+                    sum = sum/cont;
+                    iteratorDoctor.PromedioPuntuacion = sum;
+                    await this._doctorService.update(iteratorDoctor.id,iteratorDoctor);
+                // }
+            }
+
+            // if( AllMedicalConsultations.length !== 0){
+            //     for (let index = 0; index < AllMedicalConsultations.length; index++) {
+            //         let sum = 0;
+            //         let cont = 0;
+            //         for (const iterator of AllMedicalConsultations) {
+            //             if( iterator.Puntuacion !== -1){
+            //                 if(iterator.doctorId === index){
+            //                     sum += iterator.Puntuacion;
+            //                     cont++;
+            //                 }
+            //                 sum = sum/cont;
+            //                 await this._doctorService.update(iterator.doctorId,sum);
+            //             }
+            //         }
+            //     }
+            // }
+
+            const doctors = await this._doctorService.getAll();
+
+            res.status(200).send({
+                data: doctors
+            })
+        } catch (err) {
+            console.log(err);
+            res.status(400).send({
+                message: 'No se pudo sacar el promedio'
+            })
+        }
+    }
+    
+
+
     async writeMessage(req, res) {
         try {
             const { body } = req;

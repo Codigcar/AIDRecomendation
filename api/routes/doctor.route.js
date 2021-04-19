@@ -12,7 +12,10 @@ const DoctorRouter = function({doctorController}){
     // router.delete('/:id',doctorController.deleteMessage.bind(doctorController));
     router.put('/:doctorId/medicalConsultations/:medicalConsultationId/questions',doctorController.updateQuestionsAndObservation.bind(doctorController));
     // router.get('/:id',doctorController.getMessage.bind(doctorController));
-    router.get('/:doctorId',doctorController.getMessage.bind(doctorController));
+    // router.get('/:doctorId',doctorController.getMessage.bind(doctorController));
+
+    // ranking doctors
+    router.get('/rankings',doctorController.getAllDoctorsByRanking.bind(doctorController));
     return router;
 }
 
