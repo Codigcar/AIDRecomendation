@@ -17,8 +17,8 @@ module.exports = {
         userId : 1,
         DNI : '12345678',
         Sexo : 'Masculino',
-        Apellido : 'testAdmin',
-        Nombre : 'testAdmin',
+        Apellido : 'testAdminApellido',
+        Nombre : 'testAdminNombre',
         Edad : '44',
         createdAt: new Date(),
         updatedAt: new Date()
