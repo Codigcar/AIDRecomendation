@@ -104,7 +104,7 @@ class DoctorController {
                     sum = sum/cont;
                     iteratorDoctor.PromedioPuntuacion = sum;
                     await this._doctorService.update(iteratorDoctor.id,iteratorDoctor);
-                // }
+                // }    
             }
 
             // if( AllMedicalConsultations.length !== 0){
