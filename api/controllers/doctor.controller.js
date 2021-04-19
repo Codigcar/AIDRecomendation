@@ -204,7 +204,7 @@ class DoctorController {
         }
     }
 
-    async getMessage(req, res) {
+    async getDoctorByDoctorId(req, res) {
         try {
             const { doctorId } = req.params;
             const doctor = await this._doctorService.get(doctorId);
