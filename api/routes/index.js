@@ -19,6 +19,7 @@ module.exports = function({
     prescriptionRoutes,
     questionRoutes,
     monitoringRoutes,
+    foroRoutes,
 }){
     const router = Router();
     const apiRoute = Router();
@@ -46,6 +47,9 @@ module.exports = function({
     apiRoute.use('/admin',monitoringRoutes, medicalConsultationRoutes);
 
     apiRoute.use('/patients', questionRoutes);
+    apiRoute.use('/foros', foroRoutes );
+
+
 
 
 

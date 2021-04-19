@@ -11,6 +11,7 @@ class MedicalConsultation {
     PacienteApellido = '';
     doctorId = 0;
     DoctorName = '';
+    Puntuacion = 0;
 }
     
 

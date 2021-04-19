@@ -19,8 +19,8 @@ const UserRouter = function({userController}){
     ],userController.writeMessage.bind(userController));
 
     router.get('/idByToken/:token',userController.getIdByToken.bind(userController));
-
-
+    router.get('/:userId',userController.getPatientODoctorByUserId.bind(userController));
+    router.post('/password',userController.getPasswordByKeyWord.bind(userController));
 
     return router;
 }

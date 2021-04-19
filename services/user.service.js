@@ -7,7 +7,11 @@ class UserService extends BaseService{
         super(userBusiness)
     }
 
-    /*You can add other methods that there aren´t in the crud */
+    async getPasswordByKeyWord(keyWord){
+        const entity = await this._entityBunisess.getPasswordByKeyWord(keyWord);
+        return entity;
+    }
+
     
 }
 

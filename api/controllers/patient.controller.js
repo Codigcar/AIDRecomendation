@@ -106,8 +106,6 @@ class PatientController {
             patient.Deficits = decifits;
 
             
-
-
             if (patient) {
                 return res.status(200).send({
                     data: patient
@@ -124,6 +122,8 @@ class PatientController {
             })
         }
     }
+
+    
 }
 
 module.exports = PatientController;

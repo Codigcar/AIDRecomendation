@@ -13,4 +13,5 @@ module.exports = {
     PrescriptionRepository : require('./prescription.repository'),
     QuestionRepository : require('./question.repository'),
     MonitoringRepository : require('./monitoring.repository'),
+    ForoRepository : require('./foro.repository'),
 }

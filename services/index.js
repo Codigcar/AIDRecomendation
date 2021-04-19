@@ -13,4 +13,5 @@ module.exports = {
     PrescriptionService : require('./prescription.service'),
     QuestionService : require('./question.service'),
     MonitoringService : require('./monitoring.service'),
+    ForoService : require('./foro.service'),
 }

@@ -34,6 +34,9 @@ module.exports = {
       PacienteId: {
         type: Sequelize.INTEGER
       },
+      Puntuacion: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

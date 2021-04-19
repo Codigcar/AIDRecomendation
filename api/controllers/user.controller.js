@@ -155,6 +155,63 @@ class UserController {
         }
     }
 
+    async getPatientODoctorByUserId(req, res) {
+        try {
+            const { userId } = req.params;
+            const user = await this._userService.get(userId);
+            let patientOdoctor = {};
+            if( user.Rol === 1 ){
+                patientOdoctor = await this._patientService.getIdPatientDoctorByIdUser(userId);
+                patientOdoctor.Especialidad = '';
+                patientOdoctor.Colegiatura = '';
+            } else if ( user.Rol === 2){
+                patientOdoctor = await this._doctorService.getIdPatientDoctorByIdUser(userId);
+            }
+
+
+            if (patientOdoctor) {
+                return res.status(200).send({
+                    data: patientOdoctor
+                });
+            }else{
+                return res.status(400).send({
+                    data: "Usuario no encontrado"
+                });
+            }
+
+        } catch (error) {
+            console.log(error);
+            res.status(404).send({
+                message: 'No se pudo procesar la petición'
+            })
+        }
+    }
+
+    async getPasswordByKeyWord(req, res) {
+        try {
+            // const { userId } = req.params;
+            const { body } = req;
+
+            const user = await this._userService.getPasswordByKeyWord(body.PalabraSecreta);
+
+            if (user) {
+                return res.status(200).send({
+                    data: user.Contrasenia
+                });
+            }else{
+                return res.status(400).send({
+                    data: "Usuario no encontrado"
+                });
+            }
+
+        } catch (error) {
+            console.log(error);
+            res.status(404).send({
+                message: 'No se pudo procesar la petición'
+            })
+        }
+    }
+
 }
 
 module.exports = UserController;

@@ -1,3 +1,4 @@
+
 const {Router} = require("express");
 const { validateFields } = require('../../middlewares/validate-fields');
 
@@ -15,7 +16,7 @@ const PatientRouter = function({patientController,validateJWT}){
     //     validateJWT.validateJWTMetodo.bind(validateJWT),
     //     validateFields
     // ],patientController.updateMessage.bind(patientController));
-    router.get('/:id',[],patientController.getMessage.bind(patientController));
+    router.get('/:id/',[],patientController.getMessage.bind(patientController));
 
     return router;
 }

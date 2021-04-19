@@ -14,4 +14,5 @@ module.exports = {
     Prescription : require('./prescription'),
     Question : require('./question'),
     Monitoring : require('./monitoring'),
+    Foro : require('./foro'),
 }

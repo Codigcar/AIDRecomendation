@@ -149,6 +149,7 @@ class MedicalConsultationController {
             modelMedicalHistory.Paciente = paciente.Nombre;
             modelMedicalHistory.Nombre = paciente.Nombre;
             modelMedicalHistory.PacienteApellido = paciente.Apellido;
+            modelMedicalHistory.Puntuacion = 0;
 
             // save en la BD
             const message = await this._medicalConsultationService.create(modelMedicalHistory);
@@ -259,7 +260,7 @@ class MedicalConsultationController {
     async updateQuestion(req, res) {
         try {
             const { body } = req;
-            const { id, medicalHistoryId,medicalConsultationId } = req.params;
+            const { id, c,medicalConsultationId } = req.params;
 
             let listQuestions = [];
             listQuestions = body.Preguntas;
@@ -271,6 +272,11 @@ class MedicalConsultationController {
             for (let i = 0; i < listQuestions.length; i++) {
                 getQuestions[i].respuesta = listQuestions[i]['respuesta']
                 await this._questionService.update(getQuestions[i].id, getQuestions[i]);
+            }
+
+            // Actualiza estado a finalizado
+            if( body.Estado === 2 ){
+                await this._medicalConsultationService.update(medicalHistoryId, body);
             }
 
             res.status(200).send({

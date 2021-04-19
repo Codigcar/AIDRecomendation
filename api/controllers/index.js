@@ -16,5 +16,6 @@ module.exports={
     PrescriptionController : require('./prescription.controller'),
     QuestionController : require('./question.controller'),
     MonitoringController : require('./monitoring.controller'),
+    ForoController : require('./foro.controller'),
 
 }

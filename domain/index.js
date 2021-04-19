@@ -13,4 +13,5 @@ module.exports = {
     PrescriptionBusiness : require('./prescription.business'),
     QuestionBusiness : require('./question.business'),
     MonitoringBusiness : require('./monitoring.business'),
+    ForoBusiness : require('./foro.business'),
 }
