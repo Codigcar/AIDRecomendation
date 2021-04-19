@@ -22,7 +22,6 @@ const UserRouter = function({userController}){
     router.get('/:userId',userController.getPatientODoctorByUserId.bind(userController));
     router.post('/password',userController.getPasswordByKeyWord.bind(userController));
     router.put('/:userId',userController.updateUsuarioPatientODoctor.bind(userController));
-
     return router;
 }
 
