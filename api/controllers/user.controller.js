@@ -177,8 +177,6 @@ class UserController {
                 patientOdoctor.Usuario = user.Usuario;
                 patientOdoctor.Rol = user.Rol;
             }
-
-
             if (patientOdoctor) {
                 return res.status(200).send({
                     data: patientOdoctor
@@ -196,6 +194,39 @@ class UserController {
             })
         }
     }
+
+    async updateUsuarioPatientODoctor(req, res) {
+        try {
+            // const { body } = req;
+            const { userId } = req.params;
+
+            const user = await this._userService.get(userId);
+            if( user.Rol === 1 ){
+                const { Usuario, Correo, Contrasenia, PalabraSecreta, Rol, ...patient } = req.body;
+                const patientOdoctor = await this._patientService.getIdPatientDoctorByIdUser(user.id);
+                patient.userId = user.id;
+                await this._patientService.update(patientOdoctor.id, patient);
+                await this._userService.update(user.id, {Usuario, Correo, Contrasenia, PalabraSecreta, Rol});
+            } else if ( user.Rol === 2){
+                const { Usuario, Correo, Contrasenia, PalabraSecreta, Rol, ...doctor } = req.body;
+                const patientOdoctor = await this._doctorService.getIdPatientDoctorByIdUser(user.id);
+                doctor.userId = user.id;
+                await this._doctorService.update(patientOdoctor.id, doctor);
+                await this._userService.update(user.id, {Usuario, Correo, Contrasenia, PalabraSecreta,Rol});
+            }
+
+            res.status(200).send({
+                payload: "Updated successfully"
+            })
+
+        } catch (error) {
+            console.log(error);
+            res.status(400).send({
+                message: 'No se pudo actualizar'
+            })
+        }
+    }
+
 
     async getPasswordByKeyWord(req, res) {
         try {
