@@ -16,7 +16,7 @@ module.exports = {
        {
         id : 1,
         Usuario : 'testAdmin',
-        Correo : 'testAdmin',
+        Correo : 'testAdmin@gmail.com',
         Contrasenia : 'testAdmin',
         Rol : 3,
         PalabraSecreta : 'testAdmin',
