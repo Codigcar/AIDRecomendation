@@ -18,6 +18,8 @@ const PatientRouter = function({patientController,validateJWT}){
     // ],patientController.updateMessage.bind(patientController));
     router.get('/:id/',[],patientController.getMessage.bind(patientController));
 
+    // router.post('/'.patientController.adminCreateForo.bind(patientController));
+
     return router;
 }
 

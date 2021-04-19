@@ -43,6 +43,16 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
        },
+       {
+        id : 4,
+        Usuario : 'Admin',
+        Correo : 'Admin',
+        Contrasenia : 'Admin',
+        Rol : 3,
+        PalabraSecreta : 'Admin',
+        createdAt: new Date(),
+        updatedAt: new Date()
+       },
      ])
 
   },

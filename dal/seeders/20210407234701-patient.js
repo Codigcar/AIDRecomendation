@@ -23,6 +23,18 @@ module.exports = {
        
         createdAt: new Date(),
         updatedAt: new Date()
+       },
+       {
+        id : 2,
+        userId : 4,
+        DNI : '123123123',
+        Sexo : 'H',
+        Apellido : 'admin',
+        Nombre : 'admin',
+        Edad : '44',
+       
+        createdAt: new Date(),
+        updatedAt: new Date()
        }
      ])
 

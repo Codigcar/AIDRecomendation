@@ -49,6 +49,9 @@ module.exports = function({
     apiRoute.use('/patients', questionRoutes);
     apiRoute.use('/foros', foroRoutes );
 
+    // admin
+    apiRoute.use('/admin', foroRoutes );
+
 
 
 
