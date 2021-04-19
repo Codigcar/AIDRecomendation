@@ -17,6 +17,12 @@ module.exports = {
         patientId : 1,
        createdAt: new Date(),
        updatedAt: new Date()
+      },
+      {
+        id : 2,
+        patientId : 2,
+       createdAt: new Date(),
+       updatedAt: new Date()
       }
     ])
   },
