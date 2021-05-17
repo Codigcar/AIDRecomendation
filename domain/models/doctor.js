@@ -9,6 +9,8 @@ class Doctor {
     Especialidad = '';
     Colegiatura = '';
     PromedioPuntuacion = 0;
+    Direccion = '';
+    Telefono = '';
 }
 
 module.exports = Doctor;

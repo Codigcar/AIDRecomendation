@@ -31,6 +31,12 @@ module.exports = {
       Edad: {
         type: Sequelize.STRING
       },
+      Direccion: {
+        type: Sequelize.STRING
+      },
+      Telefono: {
+        type: Sequelize.STRING
+      },
       // email: {
       //   type: Sequelize.STRING
       // },

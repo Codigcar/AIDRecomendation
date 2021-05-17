@@ -6,6 +6,8 @@ class Patient {
     Apellido = '';
     Nombre = '';
     Edad = '';
+    Direccion = '';
+    Telefono = '';
 }
 
 module.exports = Patient;

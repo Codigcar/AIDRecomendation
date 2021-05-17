@@ -32,6 +32,12 @@ module.exports = {
       PromedioPuntuacion: {
         type: Sequelize.INTEGER
       },
+      Direccion: {
+        type: Sequelize.STRING
+      },
+      Telefono: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER,
         onDelete:"CASCADE",
